@@ -10,8 +10,14 @@ public class PostgreSQLJDBC {
             char gender;
             String location = "";
             String time = "";
-            double lattitude = 37.586228;
-            double longitude = 127.029027;
+            double kor_lattitude = 37.586228;
+            double kor_longitude = 127.029027;
+
+            double yon_lattitude = 37.565835;
+            double yon_longitude = 126.938583;
+
+            double lattitude = 0;
+            double longitude = 0;
 
             double difference_lattitude;
             double difference_longitude; // 37.586228, 127.029027
@@ -35,6 +41,8 @@ public class PostgreSQLJDBC {
                 //output.write(sql.getBytes());
                 pw.println(sql);
 
+                lattitude = ((((int)(Math.random()*2))%2==0) ? kor_lattitude : yon_lattitude);
+                longitude = ((((int)(Math.random()*2))%2==0) ? kor_longitude : yon_longitude);
                 for(int j=0;j<100;j++) {
 
                     difference_lattitude = Math.random()*0.01;
@@ -61,7 +69,7 @@ public class PostgreSQLJDBC {
                 }
             pw.close();
             } catch(IOException e){
-                System.out.println("뒤짐");
+                System.out.println("꺄울!");
                 //printStack
             }
             
