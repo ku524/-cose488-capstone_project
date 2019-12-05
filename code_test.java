@@ -19,6 +19,8 @@ public class PostgreSQLJDBC {
             double lattitude = 0;
             double longitude = 0;
 
+            double move=0;
+
             double difference_lattitude;
             double difference_longitude; // 37.586228, 127.029027
             // 37.587907, 127.020213
@@ -45,8 +47,10 @@ public class PostgreSQLJDBC {
                 longitude = ((((int)(Math.random()*2))%2==0) ? kor_longitude : yon_longitude);
                 for(int j=0;j<100;j++) {
 
-                    difference_lattitude = Math.random()*0.01;
-                    difference_longitude = 0.01-difference_lattitude;
+                    move = Math.random()*0.01;
+
+                    difference_lattitude = Math.random()*move;
+                    difference_longitude = move-difference_lattitude;
 
                     lattitude += ((((int)(Math.random()*2))%2==0) ? -1 : 1) * difference_lattitude;
                     longitude += ((((int)(Math.random()*2))%2==0) ? -1 : 1) * difference_longitude;
